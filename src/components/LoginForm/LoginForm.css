@@ -1,0 +1,117 @@
+@import '../../App.css';
+
+.login-form {
+    width: 360px;
+}
+
+.form-content h2 {
+    margin: 15px 0;
+    color: var(--umwelt-dark);
+    text-transform: uppercase;
+    font-size: 2.9rem;
+}
+
+.form-content .form-group {
+    position: relative;
+    display: grid;
+    grid-template-columns: 7% 93%;
+    margin: 25px 0;
+    padding: 5px 0;
+    border-bottom: 2px solid var(--umwelt-dark-green);
+}
+
+.login-content .form-group.form-email {
+    margin-top: 0;
+}
+
+.form-group.form-pass {
+    margin-bottom: 4px;
+}
+
+.i-container {
+    color: var(--umwelt-dark-green);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.i-container i {
+    transition: .3s;
+}
+
+.form-group > div {
+    position: relative;
+}
+
+.form-group > div > h5 {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--umwelt-dark-green);
+    font-size: 18px;
+    transition: .3s;
+}
+
+.form-group::before, .form-group::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    width: 0%;
+    height: 2px;
+    background-color: var(--umwelt-dark);
+    transition: .4s;
+}
+
+.form-group::before {
+    right: 50%;
+}
+
+.form-group::after {
+    left: 50%;
+}
+
+.form-group.focus::before, .form-group.focus::after {
+    width: 50%;
+}
+
+.form-group.focus > div > h5 {
+    top: -10px;
+    font-size: 16px;
+}
+
+.form-group.focus > .i-container > i {
+    color: var(--umwelt-dark);
+}
+
+.form-group > div > input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: none;
+    padding: 0.5rem 0.7rem;
+    font-size: 1.2rem;
+    color: var(--umwelt-dark);
+}
+
+.login-submit-btn {
+    padding: 12px 28px;
+    font-size: 24px;
+    border-radius: 24px;
+    background-color: var(--umwelt-dark);
+    color: var(--primary);
+    outline: none;
+    border: none;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.login-submit-btn:hover {
+    background-color: var(--primary);
+    color: var(--umwelt-dark);
+    transition: all 0.3s ease-out;
+}

@@ -1,0 +1,222 @@
+@import '../../App.css';
+
+*:focus {
+    outline: none;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
+
+.filter-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-image: url("../../assets/forest.jpg");
+    background-size: contain;
+    height: calc(100vh - 80px);
+    width: 100%;
+    color: var(--umwelt-dark);
+}
+
+.filter-container > h1 {
+    width: 50%;
+    font-size: 48px;
+    text-align: center;
+    padding: 24px;
+    padding-bottom: 36px;
+    color: var(--primary);
+}
+
+.filter-radios-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.filter-radios-container > .radio-container {
+    font-size: 18px;
+    font-weight: bold;
+    display: inline-block;
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.filter-radios-container > .radio-container > input {
+    position: absolute;
+    opacity: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: var(--primary);
+    border-radius: 50%;
+}
+
+.radio-container input:checked ~ .checkmark,
+.radio-container:hover input:checked ~ .checkmark {
+    background-color: var(--umwelt-dark);
+}
+
+.radio-container:hover input ~ .checkmark {
+    background-color: var(--umwelt-light-green);
+}
+
+.checkmark::after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.radio-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.radio-container .checkmark::after {
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+}
+
+.filter-searchBar {
+    justify-self: flex-start;
+    margin: 50px 0 50px 0;
+}
+
+.filter-searchBar label {
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.filter-searchBar label i {
+    margin-left: 8px;
+}
+
+.filter-searchBar > select {
+    border-radius: 12px;
+    font-size: 16px;
+    color: var(--umwelt-dark);
+    border: 2px solid var(--umwelt-dark);
+    cursor: pointer;
+    padding: 4px;
+    margin-right: 12px;
+}
+
+.filter-searchBar > select > option {
+    cursor: pointer;
+}
+
+.filter-searchBar > select > option:hover {
+    background-color: var(--umwelt-dark);
+}
+
+.filter-table {
+    width: 70%;
+}
+
+.filter-table-content > thead {
+    width: calc(100% - 1em);
+    font-weight: bold;
+}
+
+.filter-table-content > tbody {
+    display: block;
+    height: 440px;
+    overflow: auto;
+}
+
+.filter-table-content > thead, .filter-table-content > tbody >tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.filter-searchby {
+    display: inline-block;
+    position: relative;
+    height: 21px;
+    width: 169px;
+    padding: 1px;
+}
+
+.filter-searchby::before, .filter-searchby::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    width: 0%;
+    height: 2px;
+    background-color: var(--umwelt-dark);
+    transition: .4s;
+}
+
+.filter-searchby::before {
+    right: 50%;
+}
+
+.filter-searchby::after {
+    left: 50%;
+}
+
+.filter-searchby > h5 {
+    position: absolute;
+    left: 12px;
+    top: 70%;
+    transform: translateY(-50%);
+    color: var(--umwelt-dark);
+    font-size: 16px;
+    transition: .3s;
+    font-weight: 400;
+}
+
+.filter-searchby > input {
+    border-radius: 12px;
+    border: 2px solid var(--umwelt-dark);
+    padding: 4px;
+    font-size: 16px;
+}
+
+.filter-searchby.focus > h5 {
+    top: -10px;
+    font-size: 12px;
+}
+
+.filter-table-content td {
+    border: 2px solid var(--umwelt-dark);
+    padding: 4px 8px;
+    background-color: var(--primary);
+    text-align: center;
+}
+
+.filter-table-content > thead > tr > td:nth-child(1),
+.filter-table-content > tbody > tr > td:nth-child(1) {
+    width: 128px;
+}
+
+.filter-table-content > thead > tr > td:nth-child(2),
+.filter-table-content > tbody > tr > td:nth-child(2) {
+    width: 512px;
+}
+
+.filter-table-content > thead > tr > td:nth-child(3),
+.filter-table-content > tbody > tr > td:nth-child(3) {
+    width: 156px;
+}
+
+.filter-table-content > thead > tr > td:nth-child(5),
+.filter-table-content > tbody > tr > td:nth-child(5) {
+    width: 144px;
+}

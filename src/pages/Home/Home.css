@@ -1,0 +1,65 @@
+@import '../../App.css';
+
+.home-container {
+    background-color: var(--umwelt-green);
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    object-fit: contain;
+    z-index: 2;
+}
+
+.home-intro {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.home-intro > h1:nth-child(1) {
+    font-size: 5em;
+    color: var(--umwelt-dark);
+}
+
+.home-intro > h1:nth-child(3) {
+    font-size: 3em;
+    color: var(--primary);
+}
+
+.home-form {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+}
+
+@media (min-width: 769px) and (max-width: 1023px) {
+    .home-container > div > img {
+        width: 360px;
+    }
+}
+
+@media (max-width: 768px) {
+    .home-container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .home-container > div > img {
+        width: 480px;
+    }
+
+    .home-intro > h1:nth-child(3) {
+        display: none;
+    }
+
+    .home-intro {
+        justify-content: center;
+    }
+
+    .home-form {
+        justify-content: center;
+    }
+}

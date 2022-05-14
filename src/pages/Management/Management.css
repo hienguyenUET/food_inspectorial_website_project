@@ -1,0 +1,30 @@
+@import '../../App.css';
+
+.management-container {
+    background-image: url("../../assets/forest.jpg");
+    background-size: contain;
+    height: calc(100vh - 80px);
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+}
+
+.management-welcome {
+    grid-column: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.management-welcome > h1 {
+    letter-spacing: 1px;
+    font-size: 72px;
+    color: var(--primary);
+}
+
+.management-welcome > h2 {
+    letter-spacing: 1px;
+    font-size: 48px;
+    color: var(--umwelt-dark);
+}
