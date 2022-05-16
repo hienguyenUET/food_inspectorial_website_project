@@ -116,7 +116,7 @@
 
 .dropdown-menu .dropdown-item {
     display: block;
-    background-color: var(--umwelt-green);
+    background-color: transparent;
     color: var(--umwelt-dark);
     border-left: 2px solid var(--umwelt-dark);
     border-right: 2px solid var(--umwelt-dark);

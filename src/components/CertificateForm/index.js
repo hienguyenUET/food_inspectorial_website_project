@@ -1,11 +1,11 @@
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { standard, facilities } from '../../constants'
 import { Button } from '../Button'
+import cogoToast from 'cogo-toast'
 import './CertificateForm.css'
 
 function CertificateForm(props) {
-    let found
     let today = new Date()
 
     const [corpcodeA, setCorpcodeA] = useState('')
@@ -22,6 +22,56 @@ function CertificateForm(props) {
 
     const handleCorpcodeChangeB = (e) => {
         setCorpcodeB(e.target.value)
+    }
+
+    const handleAddCertificate = () => {
+        if (corpcodeA === '') {
+            cogoToast.warn('Vui lòng điền mã cơ sở')
+        } else if (!standard.find(item => item.CORPCODE === corpcodeA)) {
+            cogoToast.error(
+                <div>
+                    <b>Lỗi!</b>
+                    <div>Không tìm thấy mã cơ sở</div>
+                </div>
+            )
+        } else {
+            cogoToast.success('Cấp mới giấy chứng nhận thành công!')
+            standard = standard.map(item => {
+                if (item.CORPCODE === corpcodeA) {
+                    if (item.TYPE === 'Kinh doanh thực phẩm') {
+                        item.CODE = 'SUP' + item.CORPCODE
+                    } else {
+                        item.CODE = 'BUS' + item.CORPCODE
+                    }
+                    item.CODEEXPIREDDATE = today.getDate() + 
+                    '/' + (today.getMonth() + 1) +
+                    '/' + (today.getFullYear() + 1)
+                }
+            })
+        }
+    }
+
+    const handleRemoveCertificate = () => {
+        if (corpcodeB === '') {
+            cogoToast.warn('Vui lòng điền mã cơ sở')
+        } else if (!standard.find(item => item.CORPCODE === corpcodeB)) {
+            cogoToast.error(
+                <div>
+                    <b>Lỗi!</b>
+                    <div>Không tìm thấy mã cơ sở</div>
+                </div>
+            )
+        } else if (standard.find(item => item.CORPCODE === corpcodeB && item.CODE === 'Không')) {
+            cogoToast.error(
+                <div>
+                    <b>Lỗi!</b>
+                    <div>Cơ sở này không có giấy chứng nhận</div>
+                </div>
+            )
+        } else {
+            cogoToast.success('Thu hồi giấy chứng nhận thành công!')
+            standard = standard.filter(item => item.CORPCODE !== corpcodeA)
+        }
     }
 
     return (
@@ -75,8 +125,16 @@ function CertificateForm(props) {
                                     <input id='c-add-code' readOnly='readonly' value={item.CODE} />
                                 </div>
                                 <div>
-                                    <label htmlFor='c-add-code'>Ngày hết hạn</label>
-                                    <input id='c-add-code' readOnly='readonly' value={
+                                    <label htmlFor='c-add-codeexpiredold'>Ngày hết hạn cũ</label>
+                                    <input id='c-add-codeexpiredold' readOnly='readonly' value={
+                                        item.CODE !== 'Không' ?
+                                        item.CODEEXPIREDDATE :
+                                        ''
+                                    } />
+                                </div>
+                                <div>
+                                    <label htmlFor='c-add-codeexpirednew'>Ngày hết hạn mới</label>
+                                    <input id='c-add-codeexpirednew' readOnly='readonly' value={
                                         today.getDate() + 
                                         '/' + (today.getMonth() + 1) +
                                         '/' + (today.getFullYear() + 1)
@@ -92,6 +150,7 @@ function CertificateForm(props) {
                                 buttonSize='btn--large'
                                 buttonHref='procedures'
                                 buttonDisable={formType === 'remove' && 'true'}
+                                onClick={handleAddCertificate}
                             />
                         </span>
                     </div>
@@ -135,6 +194,7 @@ function CertificateForm(props) {
                                 buttonSize='btn--large'
                                 buttonHref='procedures'
                                 buttonDisable={formType === 'add' && 'true'}
+                                onClick={handleRemoveCertificate}
                             />
                         </span>
                     </div>

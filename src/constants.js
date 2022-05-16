@@ -7,8 +7,9 @@ export const standard = [
         ADDRESS:
             'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla ',
         PHONE: '0988888888',
-        TYPE: 'Kinh doanh thực phẩm',
-        CODE: 'MMAsdDsad',
+        TYPE: 'Sản xuất thực phẩm',
+        CODE: 'Không',
+        CODEEXPIREDDATE: ''
     },
     {
         CORPCODE: 'a',
@@ -16,8 +17,9 @@ export const standard = [
         ADDRESS:
             'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla ',
         PHONE: '0988888888',
-        TYPE: 'Kinh doanh thực phẩm',
-        CODE: 'MMAsdDsad',
+        TYPE: 'Sản xuất thực phẩm',
+        CODE: 'Không',
+        CODEEXPIREDDATE: ''
     },
     {
         CORPCODE: 'b',
@@ -25,8 +27,9 @@ export const standard = [
         ADDRESS:
             'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla ',
         PHONE: '0988888888',
-        TYPE: 'Kinh doanh thực phẩm',
-        CODE: 'MMAsdDsad',
+        TYPE: 'Kinh doanh dịch vụ ăn uống',
+        CODE: 'Không',
+        CODEEXPIREDDATE: ''
     },
     {
         CORPCODE: 'c',
@@ -34,8 +37,9 @@ export const standard = [
         ADDRESS:
             'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla ',
         PHONE: '0988888888',
-        TYPE: 'Kinh doanh thực phẩm',
-        CODE: 'MMAsdDsad',
+        TYPE: 'Kinh doanh dịch vụ ăn uống',
+        CODE: 'Không',
+        CODEEXPIREDDATE: ''
     },
     {
         CORPCODE: 'd',
@@ -43,45 +47,10 @@ export const standard = [
         ADDRESS:
             'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla ',
         PHONE: '0988888888',
-        TYPE: 'Kinh doanh thực phẩm',
-        CODE: 'MMAsdDsad',
-    },
-    {
-        CORPCODE: 'e',
-        NAME: 'Big C',
-        ADDRESS:
-            'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla ',
-        PHONE: '0988888888',
-        TYPE: 'Kinh doanh thực phẩm',
-        CODE: 'MMAsdDsad',
-    },
-    {
-        CORPCODE: 'f',
-        NAME: 'Big C',
-        ADDRESS:
-            'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla ',
-        PHONE: '0988888888',
-        TYPE: 'Kinh doanh thực phẩm',
-        CODE: 'MMAsdDsad',
-    },
-    {
-        CORPCODE: 'g',
-        NAME: 'Big C',
-        ADDRESS:
-            'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla ',
-        PHONE: '0988888888',
-        TYPE: 'Kinh doanh thực phẩm',
-        CODE: 'MMAsdDsad',
-    },
-    {
-        CORPCODE: 'h',
-        NAME: 'Big C',
-        ADDRESS:
-            'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla ',
-        PHONE: '0988888888',
-        TYPE: 'Kinh doanh thực phẩm',
-        CODE: 'MMAsdDsad',
-    },
+        TYPE: 'Sản xuất thực phẩm',
+        CODE: 'Không',
+        CODEEXPIREDDATE: ''
+    }
 ]
 
 export const facilities = [
