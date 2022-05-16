@@ -1,6 +1,6 @@
 
 import { useState, useRef } from 'react'
-import { standard, facilities } from '../../constants'
+import { standard } from '../../constants'
 import { Button } from '../Button'
 import cogoToast from 'cogo-toast'
 import './CertificateForm.css'
@@ -8,22 +8,29 @@ import './CertificateForm.css'
 function CertificateForm(props) {
     let today = new Date()
 
+    //Mã cơ sở form cấp mới
     const [corpcodeA, setCorpcodeA] = useState('')
+    //Mã cơ sở form thu hồi
     const [corpcodeB, setCorpcodeB] = useState('')
+    //Thể loại form cấp mới hay thu hồi
     const [formType, setFormType] = useState('add')
 
+    //Xử lý đổi kiểu form
     const handleFormChange = (e) => {
         setFormType(e.target.value)
     }
 
+    //Xử lý nhập mã cơ sở cấp mới
     const handleCorpcodeChangeA = (e) => {
         setCorpcodeA(e.target.value)
     }
 
+    //Xử lý mã cơ sở thu hồi
     const handleCorpcodeChangeB = (e) => {
         setCorpcodeB(e.target.value)
     }
 
+    //Xử lý cấp mới giấy chứng nhận
     const handleAddCertificate = () => {
         if (corpcodeA === '') {
             cogoToast.warn('Vui lòng điền mã cơ sở')
@@ -36,6 +43,7 @@ function CertificateForm(props) {
             )
         } else {
             cogoToast.success('Cấp mới giấy chứng nhận thành công!')
+            //Tìm cơ sở để cập nhật mã giấy và ngày hết hạn, mã cơ sở là độc nhất nên dùng map
             standard = standard.map(item => {
                 if (item.CORPCODE === corpcodeA) {
                     if (item.TYPE === 'Kinh doanh thực phẩm') {
@@ -51,6 +59,7 @@ function CertificateForm(props) {
         }
     }
 
+    //Xử lý thu hồi giấy chứng nhận
     const handleRemoveCertificate = () => {
         if (corpcodeB === '') {
             cogoToast.warn('Vui lòng điền mã cơ sở')
