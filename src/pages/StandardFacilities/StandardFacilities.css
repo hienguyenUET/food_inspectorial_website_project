@@ -24,7 +24,7 @@
     font-size: 48px;
     text-align: center;
     padding: 48px;
-    color: var(--umwelt-light-green);
+    color: var(--primary);
 }
 
 .stanFac-searchBar {
@@ -74,7 +74,7 @@
 
 .stanFac-table-content > tbody {
     display: block;
-    height: 442px;
+    height: 440px;
     overflow: auto;
 }
 

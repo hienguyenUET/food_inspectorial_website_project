@@ -1,0 +1,104 @@
+@import '../../App.css';
+
+* {
+    box-sizing: border-box;
+}
+
+*:focus {
+    outline: 0;
+}
+
+.certificate-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.radios {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
+}
+
+.radios > .center > .radio-container {
+    font-size: 18px;
+    font-weight: bold;
+    display: inline-block;
+    position: relative;
+    padding-left: 28px;
+    align-self: center;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.radios > .center > .radio-container > input {
+    position: absolute;
+    opacity: 0;
+}
+
+.certificate-forms-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.form-divider {
+    height: 50vh;
+    border-right: 2px solid var(--primary);
+    margin: 0 24px 0 24px;
+}
+
+.certificate-form {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding: 24px 0 24px 0;
+    gap: 12px;
+    height: 60vh;
+    width: 480px;
+    border-radius: 12px;
+    background-color: var(--umwelt-light-green);
+}
+
+.certificate-form.add > div,
+.certificate-form.remove > div {
+    display: grid;
+    grid-template-columns: 20% 80% auto;
+    align-items: center;
+    height: 48px;
+    width: 90%;
+}
+
+.certificate-form.add > div > input,
+.certificate-form.remove > div > input {
+    border: 0;
+    padding: 8px;
+    font-size: 14px;
+    max-height: 100px;
+    color: var(--umwelt-dark);
+}
+
+.certificate-form.add > div > input:disabled,
+.certificate-form.remove > div > input:disabled {
+    background-color: var(--umwelt-dark-green);
+}
+
+.proc-btn {
+    margin-top: auto;
+}

@@ -1,0 +1,29 @@
+@import '../../App.css';
+
+*:focus {
+    outline: none;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
+
+.procedures-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-image: url("../../assets/forest.jpg");
+    background-size: contain;
+    height: calc(100vh - 80px);
+    width: 100%;
+    color: var(--umwelt-dark);
+}
+
+.procedures-container > h1 {
+    width: 50%;
+    font-size: 48px;
+    text-align: center;
+    padding: 24px;
+    padding-bottom: 36px;
+    color: var(--primary);
+}

@@ -53,44 +53,6 @@
     opacity: 0;
 }
 
-.checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 25px;
-    width: 25px;
-    background-color: var(--primary);
-    border-radius: 50%;
-}
-
-.radio-container input:checked ~ .checkmark,
-.radio-container:hover input:checked ~ .checkmark {
-    background-color: var(--umwelt-dark);
-}
-
-.radio-container:hover input ~ .checkmark {
-    background-color: var(--umwelt-light-green);
-}
-
-.checkmark::after {
-    content: "";
-    position: absolute;
-    display: none;
-}
-
-.radio-container input:checked ~ .checkmark:after {
-    display: block;
-}
-
-.radio-container .checkmark::after {
-    top: 9px;
-    left: 9px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: white;
-}
-
 .filter-searchBar {
     justify-self: flex-start;
     margin: 50px 0 50px 0;
@@ -114,6 +76,7 @@
     cursor: pointer;
     padding: 4px;
     margin-right: 12px;
+    -webkit-appearance: none;
 }
 
 .filter-searchBar > select > option {

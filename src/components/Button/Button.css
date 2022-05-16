@@ -7,7 +7,7 @@
     background-color: var(--umwelt-dark);
     outline: none;
     border: none;
-    font-weight: 400;
+    font-weight: 500;
     cursor: pointer;
 }
 
@@ -15,14 +15,15 @@
 .btn--primary {
     background-color: var(--umwelt-dark);
     color: var(--primary);
+    transition: all 0.3s ease-out;
 }
 
 /*Nút bấm viền*/
 .btn--outline {
     background-color: transparent;
-    color: var(--primary);
+    color: var(--umwelt-dark);
     padding: 8px 20px;
-    border: 1px solid var(--umwelt-green);
+    border: 1px solid var(--umwelt-dark);
     transition: all 0.3s ease-out;
 }
 
@@ -35,13 +36,22 @@
 
 /*Kích thước nút lớn*/
 .btn--large {
-    width: 156px;
+    width: 189px;
     padding: 12px 24px;
     font-size: 16px;
 }
 
-.btn--medium:hover, .btn--large:hover {
+.btn--primary:hover:enabled {
     background-color: var(--primary);
     color: var(--umwelt-green);
-    transition: all 0.3s ease-out;
+}
+
+.btn--outline:hover:enabled {
+    background-color: var(--umwelt-dark);
+    color: var(--primary);
+}
+
+.btn:disabled {
+    background-color: var(--umwelt-dark-green);
+    cursor: default;
 }

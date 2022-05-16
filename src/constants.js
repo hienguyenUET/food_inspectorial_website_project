@@ -2,6 +2,7 @@ import { type } from "@testing-library/user-event/dist/type"
 
 export const standard = [
     {
+        CORPCODE: 'dm8i903u90',
         NAME: 'Big C',
         ADDRESS:
             'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla ',
@@ -10,6 +11,7 @@ export const standard = [
         CODE: 'MMAsdDsad',
     },
     {
+        CORPCODE: 'a',
         NAME: 'Big C',
         ADDRESS:
             'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla ',
@@ -18,6 +20,7 @@ export const standard = [
         CODE: 'MMAsdDsad',
     },
     {
+        CORPCODE: 'b',
         NAME: 'Big C',
         ADDRESS:
             'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla ',
@@ -26,6 +29,7 @@ export const standard = [
         CODE: 'MMAsdDsad',
     },
     {
+        CORPCODE: 'c',
         NAME: 'Big C',
         ADDRESS:
             'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla ',
@@ -34,6 +38,7 @@ export const standard = [
         CODE: 'MMAsdDsad',
     },
     {
+        CORPCODE: 'd',
         NAME: 'Big C',
         ADDRESS:
             'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla ',
@@ -42,6 +47,7 @@ export const standard = [
         CODE: 'MMAsdDsad',
     },
     {
+        CORPCODE: 'e',
         NAME: 'Big C',
         ADDRESS:
             'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla ',
@@ -50,6 +56,7 @@ export const standard = [
         CODE: 'MMAsdDsad',
     },
     {
+        CORPCODE: 'f',
         NAME: 'Big C',
         ADDRESS:
             'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla ',
@@ -58,6 +65,7 @@ export const standard = [
         CODE: 'MMAsdDsad',
     },
     {
+        CORPCODE: 'g',
         NAME: 'Big C',
         ADDRESS:
             'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla ',
@@ -66,6 +74,7 @@ export const standard = [
         CODE: 'MMAsdDsad',
     },
     {
+        CORPCODE: 'h',
         NAME: 'Big C',
         ADDRESS:
             'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla ',

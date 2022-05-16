@@ -15,12 +15,12 @@ function Filter() {
                 <label class='radio-container'>
                     <input type='radio' checked='checked' name='radio' />
                     Đủ điều kiện an toàn thực phẩm
-                    <span class='checkmark'></span>
+                    <span className='checkmark'></span>
                 </label>
                 <label class='radio-container'>
                     <input type='radio' name='radio' />
                     Không đủ điều kiện an toàn thực phẩm
-                    <span class='checkmark'></span>
+                    <span className='checkmark'></span>
                 </label>
             </div>
 
