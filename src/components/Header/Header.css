@@ -125,6 +125,7 @@
     font-weight: bold;
     padding: 8px 0;
     text-decoration: none;
+    z-index: 100;
 }
 
 .dropdown-item:hover {

@@ -1,0 +1,57 @@
+@import '../../App.css';
+
+.inspect-plan-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url("../../assets/forest.jpg");
+    background-size: contain;
+    height: calc(100vh - 80px);
+    width: 100%;
+    color: var(--umwelt-dark);
+    position: absolute;
+    z-index: -10;
+}
+
+.swiper {
+    height: 80%;
+    width: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    /* font-size: 18px; */
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.swiper-slide > h1 {
+    color: var(--primary);
+    font-size: 48px;
+    margin-bottom: auto;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    margin: 0 24px 0 24px;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    color: var(--umwelt-dark);
+    font-weight: bold;
+}

@@ -53,6 +53,22 @@ export const standard = [
     }
 ]
 
+export const inspectfacilities = [
+    {
+        CORPCODE: 'a',
+        INSPECTSTATE: 'Chưa bắt đầu',
+        INSPECTSTART: ''
+    }
+]
+
+export const inspectfoods = [
+    {
+        CORPCODE: 'a',
+        FOODCODE: 'abc',
+        INSPECTSTATE: 'Chưa bắt đầu',
+    }
+]
+
 export const facilities = [
     {
         value: 'name',

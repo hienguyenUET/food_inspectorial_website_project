@@ -102,7 +102,7 @@
     overflow: auto;
 }
 
-.filter-table-content > thead, .filter-table-content > tbody >tr {
+.filter-table-content > thead, .filter-table-content > tbody > tr {
     display: table;
     width: 100%;
     table-layout: fixed;

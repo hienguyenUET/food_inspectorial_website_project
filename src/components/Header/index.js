@@ -93,8 +93,7 @@ function Header() {
                                 <ul className='dropdown-menu'>
                                     <li><Link className='dropdown-item' to='/inspectsuggest'>Gợi ý điều tra</Link></li>
                                     <li><Link className='dropdown-item' to='/inspectplan'>Kế hoạch điều tra</Link></li>
-                                    <li><Link className='dropdown-item' to='/inspectevidence'>Mẫu vật phẩm</Link></li>
-                                    <li><Link className='dropdown-item' to='/inspectsupervision'>Theo dõi thực hiện</Link></li>
+                                    <li><Link className='dropdown-item' to='/inspectevidence'>Mẫu thực phẩm</Link></li>
                                     <li><Link className='dropdown-item' to='/inspectstatistic'>Thống kê kết quả</Link></li>
                                 </ul>
                             </li>
