@@ -2,13 +2,11 @@ package com.example.food_inspectorate_website_project.entity;
 
 
 import com.example.food_inspectorate_website_project.entity.address.Address;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.management.relation.Role;
 import javax.persistence.*;
 
 /**
@@ -20,21 +18,21 @@ import javax.persistence.*;
  */
 
 @Entity
-@Table(name = "premise")
+@Table(name = "store")
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Premise {
+public class Store {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private int id;
-    @Column(name = "premise_name")
+    @Column(name = "name")
     private String name;
-    @Column(name = "premise_phone_number")
+    @Column(name = "phone_number")
     private String phoneNumber;
-    @Column(name = "premise_reg_no")
+    @Column(name = "reg_no")
     private String regNo;
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "business_type_id", referencedColumnName = "id", updatable = false)

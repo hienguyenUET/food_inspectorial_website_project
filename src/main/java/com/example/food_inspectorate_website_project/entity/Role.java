@@ -1,5 +1,6 @@
 package com.example.food_inspectorate_website_project.entity;
 
+import com.example.food_inspectorate_website_project.enum_list.ERole;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,6 +14,7 @@ public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Enumerated(value = EnumType.STRING)
     @Column(name = "role_name")
-    private String role_name;
+    private ERole name;
 }
