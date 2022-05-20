@@ -1,0 +1,9 @@
+@import '../../App.css';
+
+.area-container {
+    background-image: url("../../assets/forest.jpg");
+    background-size: contain;
+    height: calc(100vh - 80px);
+    width: 100%;
+    color: var(--umwelt-dark);
+}

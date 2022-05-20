@@ -12,7 +12,7 @@ import InspectPlan from './pages/InspectPlan';
 import InspectEvidence from './pages/InspectEvidence';
 import InspectStatistic from './pages/InspectStatistic';
 import InspectSuggest from './pages/InspectSuggest';
-// import createRoutes from './routes';
+import AreaAssignment from './pages/AreaAssignment';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -31,6 +31,7 @@ root.render(
       <Route exact path='/inspectplan' element={<InspectPlan />} />
       <Route exact path='/inspectevidence' element={<InspectEvidence />} />
       <Route exact path='/inspectstatistic' element={<InspectStatistic />} />
+      <Route exact path='/areaassignment' element={<AreaAssignment />} />
     </Routes>
   </Router>
 );

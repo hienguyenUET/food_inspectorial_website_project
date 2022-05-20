@@ -10,6 +10,7 @@ function Header() {
     const [fir, setFir] = useState(false)
     const [sec, setSec] = useState(false)
     const [thi, setThi] = useState(false)
+    const user = 'expert'
 
     const handleClick = () => setClick(!click)
 
@@ -56,7 +57,7 @@ function Header() {
                 <nav className='navbar'>
                     <div className='navbar-container'>
                         <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-                            Health first
+                            Healthy first
                             <img className='logo' src={`${process.env.PUBLIC_URL}/assets/small-logo.png`} alt='Description' />
                         </Link>
 
@@ -70,6 +71,13 @@ function Header() {
                                     Trang chủ
                                 </Link>
                             </li>
+                            {
+                                user === 'supervisor' && (<li className='nav-item dropdown'>
+                                <Link to='/areaassignment' className='nav-links' onClick={closeMobileMenu}>
+                                    Phân công địa bàn
+                                </Link>
+                            </li>)
+                            }
                             <li className='nav-item dropdown'>
                                 <Link to='/standardfacilities' className='nav-links' onClick={closeMobileMenu}>
                                     Cơ sở sản xuất

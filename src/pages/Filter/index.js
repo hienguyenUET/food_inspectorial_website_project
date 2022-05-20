@@ -41,10 +41,12 @@ function Filter() {
                     <h5>Tìm kiếm...</h5>
                     <input
                         ref={searchRef}
-                        onFocus={() => setSearchActive(!searchActive)}
+                        onFocus={() => setSearchActive(true)}
                         onBlur={() => {
                             if (searchRef.current.value === '') {
                                 setSearchActive(false)
+                            } else {
+                                setSearchActive(true)
                             }
                         }}
                     />

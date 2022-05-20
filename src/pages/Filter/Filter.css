@@ -1,13 +1,5 @@
 @import '../../App.css';
 
-*:focus {
-    outline: none;
-}
-
-*::-webkit-scrollbar {
-    display: none;
-}
-
 .filter-container {
     display: flex;
     align-items: center;
@@ -69,6 +61,7 @@
 }
 
 .filter-searchBar > select {
+    width: 256px;
     border-radius: 12px;
     font-size: 16px;
     color: var(--umwelt-dark);
@@ -142,12 +135,19 @@
     color: var(--umwelt-dark);
     font-size: 16px;
     transition: .3s;
-    font-weight: 400;
+    font-weight: 700;
+    transform: translateY(-50%);
 }
 
 .filter-searchby > input {
-    border-radius: 12px;
-    border: 2px solid var(--umwelt-dark);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 256px;
+    border: 0;
+    border-bottom: 2px solid var(--umwelt-dark);
+    background-color: transparent;
+    color: var(--primary);
     padding: 4px;
     font-size: 16px;
 }

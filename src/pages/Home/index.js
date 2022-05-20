@@ -1,30 +1,18 @@
 //Trang chủ
 import { useState } from 'react'
+import axios from 'axios'
 import LoginForm from '../../components/LoginForm'
 import './Home.css'
 
 function Home() {
-    const adminUser = {
-        email: 'admin@admin.com',
-        password: 'admin123'
-    }
-
-    const [user, setUser] = useState({name: '', email: ''})
+    const [user, setUser] = useState({name: '', role: ''})
     const [error, setError] = useState('')
 
     const login = details => {
-        console.log(details)
-
-        if (details.email === adminUser.email
-            && details.password === adminUser.password) {
-                console.log('Successful')
-                setUser({
-                    email: details.email
-                })
-            }
-        else {
-            console.log('Fail')
-        }
+        axios.get('http://localhost:8080/auth/login')
+            .then(res => {
+                console.log(res.data)
+            })
     }
 
     const logout = () => {

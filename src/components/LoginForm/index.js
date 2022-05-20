@@ -2,8 +2,8 @@ import { useState, useRef } from 'react'
 import './LoginForm.css'
 
 function LoginForm({ login, error }) {
-    const [details, setDetails] = useState({email: '', password: ''})
-    const [mailActive, setMailActive] = useState(false)
+    const [details, setDetails] = useState({username: '', password: ''})
+    const [usernameActive, setUsernameActive] = useState(false)
     const [passActive, setPassActive] = useState(false)
 
     const submitHandler = e => {
@@ -12,15 +12,15 @@ function LoginForm({ login, error }) {
         login(details)
     }
 
-    const mailFocusHandler = () => {
-        if (!mailActive) {
-            setMailActive(true)
+    const usernameFocusHandler = () => {
+        if (!usernameActive) {
+            setUsernameActive(true)
         }
     }
 
-    const mailBlurHandler = () => {
-        if (emailRef.current.value === '') {
-            setMailActive(false)
+    const usernameBlurHandler = () => {
+        if (usernameRef.current.value === '') {
+            setUsernameActive(false)
         }
     }
 
@@ -36,7 +36,7 @@ function LoginForm({ login, error }) {
         }
     }
 
-    const emailRef = useRef()
+    const usernameRef = useRef()
     const passwordRef = useRef()
 
     return (
@@ -45,26 +45,26 @@ function LoginForm({ login, error }) {
                 <h2>Xin chào</h2>
                 {/* Error */}
                 <div className={`form-group
-                    form-email
-                    ${mailActive && 'focus'}`
+                    form-username
+                    ${usernameActive && 'focus'}`
                 }>
                     <div className='i-container'>
                         <i class='fa-solid fa-envelope'></i>
                     </div>
                     <div className='input-container'>
-                        <h5>Email</h5>
+                        <h5>Tài khoản</h5>
                         <input
-                            ref={emailRef}
-                            type='email'
-                            name='email'
-                            id='email'
+                            ref={usernameRef}
+                            type='username'
+                            name='username'
+                            id='username'
                             onChange={e => setDetails({
                                 ...details,
-                                email: e.target.value
+                                username: e.target.value
                             })}
-                            value={details.email}
-                            onFocus={mailFocusHandler}
-                            onBlur={mailBlurHandler}
+                            value={details.username}
+                            onFocus={usernameFocusHandler}
+                            onBlur={usernameBlurHandler}
                         />
                     </div>
                 </div>
