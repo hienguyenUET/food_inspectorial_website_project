@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "city")
@@ -18,9 +20,11 @@ public class City {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int name_id;
+    @Column(name = "city_name")
+    private String city;
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "country_id", referencedColumnName = "id", updatable = false)
     private Country country;
-    @Column(name = "city_name")
-    private String city;
+//    @OneToMany(mappedBy = "city")
+//    private List<District> districts = new ArrayList<>();
 }

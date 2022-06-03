@@ -1,10 +1,9 @@
 package com.example.food_inspectorate_website_project.service.implementation;
 
-import com.example.food_inspectorate_website_project.dto.AccountDTO;
-import com.example.food_inspectorate_website_project.entity.Account;
 import com.example.food_inspectorate_website_project.entity.User;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,25 +11,23 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.io.Serial;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
 
 @Setter
 @Getter
+@ToString
 public class UserDetailsImpl implements UserDetails {
     @Serial
     private static final long serialVersionUID = 1L;
     private int id;
     private String username;
-    private String email;
     private String password;
     private String lastName;
     private String firstName;
     private GrantedAuthority authorities;
 
-    public UserDetailsImpl(int id, String username, String email, String password, String lastName, String firstName, GrantedAuthority authorities) {
+    public UserDetailsImpl(int id, String username, String password, String lastName, String firstName, GrantedAuthority authorities) {
         this.id = id;
         this.username = username;
-        this.email = email;
         this.password = password;
         this.lastName = lastName;
         this.firstName = firstName;
@@ -42,7 +39,6 @@ public class UserDetailsImpl implements UserDetails {
         return new UserDetailsImpl(
                 user.getId(),
                 user.getUsername(),
-                user.getEmail(),
                 user.getPassword(),
                 user.getLastName(),
                 user.getFirstName(),

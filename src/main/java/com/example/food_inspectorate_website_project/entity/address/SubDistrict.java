@@ -2,6 +2,7 @@ package com.example.food_inspectorate_website_project.entity.address;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 

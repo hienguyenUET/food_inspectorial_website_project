@@ -25,4 +25,24 @@ public class StoreServiceImpl implements StoreService {
     public void save(Store store) {
         storeRepository.save(store);
     }
+
+    @Override
+    public Store findById(int id) {
+        return storeRepository.findById(id).get();
+    }
+
+    @Override
+    public Store findByRegNo(String regNo) {
+        return storeRepository.findByRegNo(regNo);
+    }
+
+    @Override
+    public void deleteByRegNo(String regNo) {
+        storeRepository.findByRegNo(regNo);
+    }
+
+    @Override
+    public List<Store> findByCertificationNull() {
+        return storeRepository.findByCertificationNull();
+    }
 }

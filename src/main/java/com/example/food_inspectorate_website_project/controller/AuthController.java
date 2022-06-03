@@ -1,5 +1,6 @@
 package com.example.food_inspectorate_website_project.controller;
 
+import com.example.food_inspectorate_website_project.FoodInspectorateWebsiteProjectApplication;
 import com.example.food_inspectorate_website_project.payload.request.LoginRequest;
 import com.example.food_inspectorate_website_project.payload.response.JwtResponse;
 import com.example.food_inspectorate_website_project.repository.RoleRepository;
@@ -44,8 +45,9 @@ public class AuthController {
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String jwt = jwtUtils.generateJwtToken(authentication);
         UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
+        FoodInspectorateWebsiteProjectApplication.userDetails = userDetails;
         String role = userDetails.getAuthorities().toString();
-        return ResponseEntity.ok(new JwtResponse(jwt, userDetails.getId(), userDetails.getUsername(),
-                userDetails.getFirstName(), userDetails.getLastName(), userDetails.getEmail(), role));
+        return ResponseEntity.ok(new JwtResponse(jwt, userDetails.getId(), userDetails.getUsername(), userDetails.getPassword(),
+                userDetails.getFirstName(), userDetails.getLastName(),  role));
     }
 }

@@ -2,10 +2,8 @@ package com.example.food_inspectorate_website_project.entity;
 
 
 import com.example.food_inspectorate_website_project.entity.address.Address;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -40,4 +38,9 @@ public class Store {
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "address_id", referencedColumnName = "id")
     private Address address;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "certificate_id", referencedColumnName = "id")
+    @JsonManagedReference
+    private Certification certification;
+
 }

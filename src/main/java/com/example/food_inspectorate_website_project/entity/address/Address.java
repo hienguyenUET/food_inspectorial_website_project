@@ -1,6 +1,9 @@
 package com.example.food_inspectorate_website_project.entity.address;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -9,6 +12,8 @@ import javax.persistence.*;
 @Table(name = "address")
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
