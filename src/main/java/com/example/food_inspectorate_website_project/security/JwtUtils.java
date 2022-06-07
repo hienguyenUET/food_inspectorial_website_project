@@ -1,7 +1,7 @@
 package com.example.food_inspectorate_website_project.security;
 
 
-import com.example.food_inspectorate_website_project.service.implementation.UserDetailsImpl;
+import com.example.food_inspectorate_website_project.service.implementation.user.UserDetailsImpl;
 import io.jsonwebtoken.*;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;

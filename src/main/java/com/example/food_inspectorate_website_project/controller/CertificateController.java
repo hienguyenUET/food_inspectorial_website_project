@@ -1,8 +1,8 @@
 //package com.example.food_inspectorate_website_project.controller;
 //
-//import com.example.food_inspectorate_website_project.entity.Certification;
+//import com.example.food_inspectorate_website_project.entity.store.Certification;
 //import com.example.food_inspectorate_website_project.payload.request.DeleteCertificateForm;
-//import com.example.food_inspectorate_website_project.service.service.CertificationService;
+//import com.example.food_inspectorate_website_project.service.service.store.CertificationService;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.web.bind.annotation.DeleteMapping;
 //import org.springframework.web.bind.annotation.RequestBody;

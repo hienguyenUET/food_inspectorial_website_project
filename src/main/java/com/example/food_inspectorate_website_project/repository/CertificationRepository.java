@@ -1,8 +1,7 @@
 package com.example.food_inspectorate_website_project.repository;
 
 
-import com.example.food_inspectorate_website_project.entity.Certification;
-import com.example.food_inspectorate_website_project.entity.Store;
+import com.example.food_inspectorate_website_project.entity.store.Certification;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.sql.Date;

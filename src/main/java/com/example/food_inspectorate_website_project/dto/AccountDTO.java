@@ -1,6 +1,6 @@
 package com.example.food_inspectorate_website_project.dto;
 
-import com.example.food_inspectorate_website_project.entity.Role;
+import com.example.food_inspectorate_website_project.entity.user.Role;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

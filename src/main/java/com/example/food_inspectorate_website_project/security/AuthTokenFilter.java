@@ -1,6 +1,6 @@
 package com.example.food_inspectorate_website_project.security;
 
-import com.example.food_inspectorate_website_project.service.implementation.UserDetailsServiceImpl;
+import com.example.food_inspectorate_website_project.service.implementation.user.UserDetailsServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
 package com.example.food_inspectorate_website_project.security;
 
-import com.example.food_inspectorate_website_project.service.implementation.UserDetailsServiceImpl;
+import com.example.food_inspectorate_website_project.service.implementation.user.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -61,6 +61,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and().authorizeRequests().antMatchers("/address/**").permitAll()
                 .and().authorizeRequests().antMatchers("/store/**").permitAll()
                 .and().authorizeRequests().antMatchers("/certificate/**").permitAll()
+                .and().authorizeRequests().antMatchers("/inspection/**").permitAll()
+                .and().authorizeRequests().antMatchers("/food/**").permitAll()
+                .and().authorizeRequests().antMatchers("/specialist/**").hasAnyAuthority("SPECIALIST")
+                .and().authorizeRequests().antMatchers("/admin/**").hasAnyAuthority("ADMIN")
                 .anyRequest().authenticated();
         http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
     }

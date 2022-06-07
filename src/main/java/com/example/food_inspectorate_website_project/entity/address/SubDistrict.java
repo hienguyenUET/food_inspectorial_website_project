@@ -10,6 +10,7 @@ import javax.persistence.*;
 @Table(name = "sub_district")
 @Setter
 @Getter
+@ToString
 public class SubDistrict {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

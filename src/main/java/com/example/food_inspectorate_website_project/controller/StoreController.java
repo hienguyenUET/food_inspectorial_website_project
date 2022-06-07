@@ -1,15 +1,15 @@
 package com.example.food_inspectorate_website_project.controller;
 
 import com.example.food_inspectorate_website_project.dto.PremiseDTO;
-import com.example.food_inspectorate_website_project.entity.Certification;
-import com.example.food_inspectorate_website_project.entity.Store;
+import com.example.food_inspectorate_website_project.entity.store.Certification;
+import com.example.food_inspectorate_website_project.entity.store.Store;
 import com.example.food_inspectorate_website_project.entity.address.Address;
 import com.example.food_inspectorate_website_project.payload.request.DeleteCertificateForm;
 import com.example.food_inspectorate_website_project.payload.response.CertificationForm;
-import com.example.food_inspectorate_website_project.service.service.BusinessTypeService;
-import com.example.food_inspectorate_website_project.service.service.CertificationService;
-import com.example.food_inspectorate_website_project.service.service.StoreService;
-import com.example.food_inspectorate_website_project.service.service.SubDistrictService;
+import com.example.food_inspectorate_website_project.service.service.store.BusinessTypeService;
+import com.example.food_inspectorate_website_project.service.service.store.CertificationService;
+import com.example.food_inspectorate_website_project.service.service.store.StoreService;
+import com.example.food_inspectorate_website_project.service.service.address.SubDistrictService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -52,28 +52,23 @@ public class StoreController {
         return new ResponseEntity<>(store, HttpStatus.OK);
     }
 
-    @GetMapping(value = "/get")
-    public ResponseEntity<List<Store>> getAllStores() {
-        List<Store> stores = storeService.findAll();
-        if (stores != null) {
-            return new ResponseEntity<>(stores, HttpStatus.OK);
-        }
-        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
-    }
 
     // goi y co so chua co giay chung nhan/ giay chung nhan da het han su dung
-    @GetMapping("/get/unverified")
-    public ResponseEntity<List<Store>> getUnverifiedStores() {
-        List<Store> unVerifiedStore = new ArrayList<>();
-        List<Store> nullCertificateStore = storeService.findByCertificationNull();
-        Date date = Date.valueOf(LocalDate.now());
-        List<Certification> expiredCertificateStore = certificationService.findByExpirationDateBefore(date);
-        for (Certification cert : expiredCertificateStore) {
-            unVerifiedStore.add(cert.getStore());
-        }
-        unVerifiedStore.addAll(nullCertificateStore);
-        return new ResponseEntity<>(unVerifiedStore, HttpStatus.OK);
-    }
+//    @GetMapping("/get/unverified")
+//    public ResponseEntity<List<Store>> getUnverifiedStores() {
+//        List<Store> unVerifiedStore = new ArrayList<>();
+//        List<Store> nullCertificateStore = storeService.findByCertificationNull();
+//        Date date = Date.valueOf(LocalDate.now());
+//        List<Certification> expiredCertificateStore = certificationService.findByExpirationDateBefore(date);
+//        for (Certification cert : expiredCertificateStore) {
+//            unVerifiedStore.add(cert.getStore());
+//        }
+//        unVerifiedStore.addAll(nullCertificateStore);
+//        return new ResponseEntity<>(unVerifiedStore, HttpStatus.OK);
+//    }
+
+    // get non-inspected stores
+
 
     @PutMapping(value = "/add/certificate") // duong link de them cert
     public void addCertification(@RequestBody CertificationForm certificationForm) {
@@ -95,8 +90,6 @@ public class StoreController {
             throw new RuntimeException("Store not found");
         }
     }
-
-
 
     @DeleteMapping("certificate/delete")
     public void deleteCertificate(@RequestBody DeleteCertificateForm certificationForm) {
