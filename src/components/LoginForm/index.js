@@ -6,12 +6,14 @@ function LoginForm({ login, error }) {
     const [usernameActive, setUsernameActive] = useState(false)
     const [passActive, setPassActive] = useState(false)
 
+    //Xử lý đăng nhập
     const submitHandler = e => {
         e.preventDefault()
 
         login(details)
     }
 
+    //Xử lú front end
     const usernameFocusHandler = () => {
         if (!usernameActive) {
             setUsernameActive(true)

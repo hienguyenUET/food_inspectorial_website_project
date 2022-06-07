@@ -16,6 +16,7 @@ export const Button = ({
     buttonHref,
     buttonDisable
 }) => {
+    //Gán kích thước và kiểu nút bấm mặc định nếu thuộc tính không được truyền
     const checkButtonStyle = STYLES.includes(buttonStyle) ? buttonStyle : STYLES[0]
     const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0]
 

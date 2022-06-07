@@ -4,6 +4,7 @@ import { Button } from '../../components/Button'
 
 import DataComponent from '../DataComponent'
 
+//Xử lý xuất giấy chứng nhận
 class PdfComponent extends React.Component {
     render() {
         return (

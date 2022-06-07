@@ -6,6 +6,7 @@ import cogoToast from 'cogo-toast'
 import axios from 'axios'
 import './CertificateForm.css'
 
+//Đơn cấp mới/ thu hồi giấy chứng nhận
 function CertificateForm(props) {
     let today = new Date()
 
@@ -42,8 +43,10 @@ function CertificateForm(props) {
     //Xử lý cấp mới giấy chứng nhận
     const handleAddCertificate = () => {
         if (regNoA === '') {
+            //Người dùng chưa nhập mã cơ sở
             cogoToast.warn('Vui lòng điền mã cơ sở')
         } else if (!props.standard.find(item => item.regNo === regNoA)) {
+            //Không tìm thấy mã cơ sở
             cogoToast.error(
                 <div>
                     <b>Lỗi!</b>
@@ -51,6 +54,7 @@ function CertificateForm(props) {
                 </div>
             )
         } else {
+            //Người dùng chưa nhập mã giấy chứng nhận
             if (!certNumber) {
                 cogoToast.warn('Vui lòng cấp mã giấy chứng nhận!')
             } else {
@@ -79,6 +83,7 @@ function CertificateForm(props) {
                                 const expirationDate = (today.getFullYear() + 1) +
                                     '-' + ('0' + (today.getMonth() + 1)).slice(-2) +
                                     '-' + ('0' + (today.getDate() + 1)).slice(-2)
+                                //Gửi request để cấp mới giấy chứng nhận
                                 axios('http://localhost:8080/store/add/certificate', {
                                     headers: {
                                         Authorization: 'Bearer ' + localStorage.getItem('token'),
@@ -92,6 +97,7 @@ function CertificateForm(props) {
                                     },
                                     method: 'put'
                                 })
+                                window.setTimeout(() => window.location.reload(), 2000)
                             }
                         }
                     }
@@ -103,8 +109,10 @@ function CertificateForm(props) {
     //Xử lý thu hồi giấy chứng nhận
     const handleRemoveCertificate = () => {
         if (regNoB === '') {
+            //Người dùng chưa nhập mã cơ sở
             cogoToast.warn('Vui lòng điền mã cơ sở')
         } else if (!props.standard.find(item => item.regNo === regNoB)) {
+            //Không tìm thấy mã cơ sở
             cogoToast.error(
                 <div>
                     <b>Lỗi!</b>
@@ -133,6 +141,7 @@ function CertificateForm(props) {
                     },
                     method: 'delete'
                 })
+                window.setTimeout(() => window.location.reload(), 2000)
             }
         }
     }

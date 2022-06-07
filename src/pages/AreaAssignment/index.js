@@ -8,7 +8,7 @@ export default class AreaAssignment extends React.Component {
     constructor(props) {
         super(props)
 
-        // Set initial state 
+        //Dữ liệu khởi tạo
         this.state = {
             specialistId: '',
             specialistExist: false,
@@ -18,7 +18,7 @@ export default class AreaAssignment extends React.Component {
             subDistrict: ''
         }
 
-        // Binding this keyword 
+        //Bind các hàm với this
         this.handleSpecialistIdChange = this.handleSpecialistIdChange.bind(this)
         this.handleDistrictChange = this.handleDistrictChange.bind(this)
         this.handleSubDistrictChange = this.handleSubDistrictChange.bind(this)
@@ -27,6 +27,7 @@ export default class AreaAssignment extends React.Component {
     componentDidMount() {
         localStorage.removeItem('specialist-info')
 
+        //Nếu quận chưa tồn tại trong bộ nhớ đệm, request để lấy các quận trong thành phố
         if (!localStorage.getItem('districts')) {
             axios.get('http://localhost:8080/address/districts')
                 .then(res => {
@@ -40,15 +41,18 @@ export default class AreaAssignment extends React.Component {
     }
 
     componentWillUnmount() {
+        //Xóa dữ liệu khỏi bộ nhớ đệm khi thoát khỏi trang
         localStorage.removeItem('specialist-info')
         localStorage.removeItem('districts')
         localStorage.removeItem('sub-districts')
     }
 
+    //Xử lý id chuyên viên
     handleSpecialistIdChange(event) {
         this.setState({ specialistId: event.target.value, specialistExist: false })
     }
 
+    //Xử lý thay đổi quận
     handleDistrictChange(event) {
         this.setState({ district: event.target.value, subDistrict: '' })
         axios.get(`http://localhost:8080/address/subdistricts/${event.target.value}`)
@@ -61,21 +65,24 @@ export default class AreaAssignment extends React.Component {
             })
     }
 
+    //Xử lý thay đổi phường
     handleSubDistrictChange(event) {
         this.setState({ subDistrict: event.target.value })
     }
 
+    //Người dùng muốn kiểm tra lại thông tin trước khi phân vùng
     handleCheckInfo = async () => {
-        const res = await axios.get('http://localhost:8080/admin/get/specialist', {
+        const res = await axios.get('http://localhost:8080/user/get/specialist', {
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('token'),
-                'Access-Control-Allow-Origin': '*',
             },
         })
 
         if (this.state.specialistId === '') {
-            cogoToast.warn('Vui lòng điền mã chuyên viên')
+            //Người dùng chưa nhập mã chuyên viên
+            cogoToast.warn('Vui lòng điền mã nhân viên')
         } else if (!res.data.find(item => item.id === (this.state.specialistId - ''))) {
+            //Mã chuyên viên không tồn tại
             cogoToast.error(
                 <div>
                     <b>Lỗi!</b>
@@ -88,17 +95,19 @@ export default class AreaAssignment extends React.Component {
         }
     }
 
+    //Xử lý phân công vùng mới
     handleAssignArea = async () => {
-        const res = await axios.get('http://localhost:8080/admin/get/specialist', {
+        const res = await axios.get('http://localhost:8080/user/get/specialist', {
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('token'),
-                'Access-Control-Allow-Origin': '*',
             },
         })
 
         if (this.state.specialistId === '') {
+            //Người dùng chưa nhập mã chuyên viên
             cogoToast.warn('Vui lòng điền mã nhân viên')
         } else if (!res.data.find(item => item.id === (this.state.specialistId - ''))) {
+            //Mã chuyên viên không tồn tại
             cogoToast.error(
                 <div>
                     <b>Lỗi!</b>
@@ -106,12 +115,14 @@ export default class AreaAssignment extends React.Component {
                 </div>
             )
         } else if (this.state.district === '' || this.state.subDistrict === '') {
+            //Người dùng chưa chọn phân vùng
             cogoToast.warn('Vui lòng chọn phân vùng mới cho chuyên viên')
         } else {
             localStorage.setItem('specialist-info', JSON.stringify(res.data.find(item => item.id === (this.state.specialistId - ''))))
 
+            //Gửi request để thay đổi dữ liệu chuyên viên
             axios({
-                url: `http://localhost:8080/admin/assign/`,
+                url: `http://localhost:8080/user/assign/`,
                 headers: {
                     Authorization: 'Bearer ' + localStorage.getItem('token'),
                     'Access-Control-Allow-Origin': '*',
@@ -135,9 +146,8 @@ export default class AreaAssignment extends React.Component {
 
     render() {
         const districts = localStorage.getItem('districts') ? JSON.parse(localStorage.getItem('districts')) : []
-        const subDistricts = localStorage.getItem('sub-districts') ? (this.state.district === '' ? [] : JSON.parse(localStorage.getItem('sub-districts'))) : []
+        const subDistricts = localStorage.getItem('subDistricts') ? (this.state.district === '' ? [] : JSON.parse(localStorage.getItem('subDistricts'))) : []
         const specialistInfo = this.state.specialistExist ? JSON.parse(localStorage.getItem('specialist-info')) : {}
-        console.log(subDistricts)
 
         return (
             <div className='area-container' >

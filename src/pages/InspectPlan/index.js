@@ -26,6 +26,7 @@ function InspectPlan() {
     const [storeQualify, setStoreQualify] = useState(true)
 
     useEffect(() => {
+        //Lấy cơ sở đang được thanh tra
         axios('http://localhost:8080/inspection/store/current', {
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('token'),
@@ -35,6 +36,7 @@ function InspectPlan() {
         }).then(res => {
             setInspectFacilities(res.data)
             if (res.data.status !== 'NO') {
+                //Nếu cửa hàng chưa bắt đầu thanh tra
                 axios(`http://localhost:8080/inspection/sample/${res.data.regNo}`, {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem('token'),
@@ -93,9 +95,11 @@ function InspectPlan() {
         setTimeout(window.location.reload(false), 1500)
     }
 
+    //Xử lý loại bỏ cơ sở
     const handleRemoveInspect = (corpcode) => {
         //Loại bỏ cơ sở khỏi bảng thanh tra
         if (inspectFacilities.qualify === false && inspectFacilities.reason === null) {
+            //Nếu chuyên viên chưa có quyết định
             cogoToast.error('Chưa có quyết định cuối cùng của chuyên viên')
         } else {
             cogoToast.info(`Kết thúc thanh tra cơ sở với mã ${corpcode}`)
@@ -111,6 +115,7 @@ function InspectPlan() {
         }
     }
 
+    //Xử lý bắt đầu kiểm định thực phẩm
     const handleStartFoodInspect = (foodCode) => {
         cogoToast.info(`Bắt đầu kiểm định thực phẩm có mã ${foodCode}`)
         //Thay đổi tình trạng, ngày bắt đầu
@@ -125,7 +130,7 @@ function InspectPlan() {
         setTimeout(window.location.reload(false), 1500)
     }
 
-    //Hàm xử lý kết thúc thanh tra cơ sở
+    //Hàm xử lý kết thúc kiểm định thực phẩm
     const handleEndFoodInspect = (foodCode) => {
         cogoToast.success(`Hoàn tất kiểm định thực phẩm có mã ${foodCode}`)
         //Thay đổi tình trạng, chuyển mẫu thực phẩm sang pha sau
@@ -140,6 +145,7 @@ function InspectPlan() {
         setTimeout(window.location.reload(false), 1500)
     }
 
+    //Xử lý loại bỏ thực phẩm
     const handleRemoveFoodInspect = (foodCode) => {
         cogoToast.info(`Kết thúc kiểm định thực phẩm có mã ${foodCode}`)
         //Loại bỏ cơ sở khỏi bảng thanh tra
@@ -156,6 +162,7 @@ function InspectPlan() {
         setDialogOpen2(false)
     }
 
+    //Xử lý thực phẩm đạt chuẩn
     const handleFoodPassed = () => {
         const foodCode = localStorage.getItem('food-being-inspected')
         axios(`http://localhost:8080/inspection/qualified/${foodCode}/${inspectFacilities.id}`, {
@@ -175,6 +182,7 @@ function InspectPlan() {
         setTimeout(window.location.reload(false), 1500)
     }
 
+    //Xử lý thực phẩm không đạt chuẩn
     const handleFoodFailed = () => {
         const foodCode = localStorage.getItem('food-being-inspected')
         axios(`http://localhost:8080/inspection/qualified/${foodCode}/${inspectFacilities.id}`, {
@@ -194,6 +202,7 @@ function InspectPlan() {
         setTimeout(window.location.reload(false), 1500)
     }
 
+    //Xử lý cơ sở đạt chuẩn
     const handleStorePassed = () => {
         if (inspectedFoods.length <= 2) {
             cogoToast.error('Chưa kiểm định đủ 3 mẫu thực phẩm trở lên')
@@ -203,6 +212,7 @@ function InspectPlan() {
         }
     }
 
+    //Xử lý cơ sở không đạt chuẩn
     const handleStoreFailed = () => {
         if (inspectedFoods.length <= 2) {
             cogoToast.error('Chưa kiểm định đủ 3 mẫu thực phẩm trở lên')
@@ -212,6 +222,7 @@ function InspectPlan() {
         }
     }
 
+    //Xử lý sau khi đã quyết định cơ sở đạt chuẩn hay không
     const handleStoreQualify = () => {
         axios('http://localhost:8080/inspection/update/qualify/status', {
             headers: {

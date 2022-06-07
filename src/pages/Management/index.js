@@ -1,5 +1,6 @@
 import './Management.css'
 
+//Trang chủ
 function Management() {
     const userInfo = JSON.parse(localStorage.getItem('user-info'))
 

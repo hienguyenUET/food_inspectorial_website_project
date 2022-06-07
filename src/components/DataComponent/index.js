@@ -1,6 +1,7 @@
 import React from 'react'
 import './DataComponent.css'
 
+//Mẫu giấy chứng nhận an toàn thực phẩm
 class DataComponent extends React.Component {
     render() {
         return (
