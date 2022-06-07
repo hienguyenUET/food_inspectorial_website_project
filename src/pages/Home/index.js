@@ -11,12 +11,16 @@ function Home() {
     const [error, setError] = useState('')
     const navigate = useNavigate();
 
+    //Xử lý đăng nhập
     const login = details => {
         if (details.username === '') {
+            //Người dùng chưa điền tài khoản
             cogoToast.error('Vui lòng điền tài khoản')
         } else if (details.password === '') {
+            //Người dùng chưa nhập mật khẩu
             cogoToast.error('Vui lòng nhập mật khẩu')
         } else {
+            //Gửi request kiểm tra chính chủ
             axios.post('http://localhost:8080/auth/login', {
                 username: details.username,
                 password: details.password

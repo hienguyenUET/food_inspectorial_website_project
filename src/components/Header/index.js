@@ -25,6 +25,7 @@ function Header() {
         }
     }
 
+    //Khi đăng xuất xóa dữ liệu người dùng ở bộ nhớ đệm và trong csdl
     const handleLogout = () => {
         axios('http://localhost:8080/auth/logout')
         localStorage.clear()

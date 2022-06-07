@@ -59,6 +59,7 @@ function InspectStatistic() {
     }
 
     useEffect(() => {
+        //Lấy dữ liệu của hàng để thống kê
         axios.get(`http://localhost:8080/${userInfo.role === '[ADMIN]' ? 'admin' : 'specialist'}/stores/get`, {
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('token'),

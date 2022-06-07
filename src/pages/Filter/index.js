@@ -15,6 +15,7 @@ function Filter() {
 
     const searchRef = useRef()
 
+    //Xử lý khi người dùng thay đổi bộ lọc
     const handleFilterChange = (event) => {
         console.log(event.target.value)
         if (event.target.value !== 'Tất cả') {
@@ -71,6 +72,7 @@ function Filter() {
     }
 
     useEffect(() => {
+        //Request cửa hàng
         axios(`http://localhost:8080/${userInfo.role === '[ADMIN]' ? 'admin' : 'specialist'}/stores/get`, {
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('token'),
@@ -84,6 +86,7 @@ function Filter() {
         })
     }, [])
 
+    //Lọc có giấy chứng nhận hay không
     useEffect(() => {
         if (!isNoneSafe) {
             if (isSafe) {

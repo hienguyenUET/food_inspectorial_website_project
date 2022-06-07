@@ -9,17 +9,18 @@ export default class InspectSuggest extends React.Component {
     constructor(props) {
         super(props)
 
-        // Set initial state 
+        //Dữ liệu khởi tạo
         this.state = {
             inspect: [],
             userInfo: JSON.parse(localStorage.getItem('user-info')),
         }
 
-        // Binding this keyword 
+        //Bind các hàm với this
         this.handlePlan = this.handlePlan.bind(this)
     }
 
     componentDidMount() {
+        //Lấy các cửa hàng chưa được thanh tra
         axios(`http://localhost:8080/${this.state.userInfo.role === '[ADMIN]' ? 'admin' : 'specialist'}/get/non_inspected`, {
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('token'),
@@ -34,6 +35,7 @@ export default class InspectSuggest extends React.Component {
     }
 
     handlePlan(regNo) {
+        //Chuyển cơ sở sang thanh tra
         axios('http://localhost:8080/inspection/store', {
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('token'),
