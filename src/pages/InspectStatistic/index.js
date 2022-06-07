@@ -119,7 +119,7 @@ function InspectStatistic() {
                             <tr key={index}>
                                 <td>{item.regNo}</td>
                                 <td>{item.name}</td>
-                                <td>{item.status.status === 'NO' ? 'Chưa thanh tra' : (item.qualify === true ? 'Đạt điều kiện an toàn thực phẩm' : 'Không đạt điều kiện an toàn thực phẩm')}</td>
+                                <td>{item.status.status === 'NO' ? 'Chưa thanh tra' : (item.qualify === true ? ('Đạt điều kiện an toàn thực phẩm' + '(' + item.reason + ')') : ('Không đạt điều kiện an toàn thực phẩm' + '(' + item.reason + ')'))}</td>
                             </tr>
                         ))}
                     </tbody>

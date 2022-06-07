@@ -66,14 +66,15 @@ export default class AreaAssignment extends React.Component {
     }
 
     handleCheckInfo = async () => {
-        const res = await axios.get('http://localhost:8080/user/get/specialist', {
+        const res = await axios.get('http://localhost:8080/admin/get/specialist', {
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('token'),
+                'Access-Control-Allow-Origin': '*',
             },
         })
 
         if (this.state.specialistId === '') {
-            cogoToast.warn('Vui lòng điền mã nhân viên')
+            cogoToast.warn('Vui lòng điền mã chuyên viên')
         } else if (!res.data.find(item => item.id === (this.state.specialistId - ''))) {
             cogoToast.error(
                 <div>
@@ -88,9 +89,10 @@ export default class AreaAssignment extends React.Component {
     }
 
     handleAssignArea = async () => {
-        const res = await axios.get('http://localhost:8080/user/get/specialist', {
+        const res = await axios.get('http://localhost:8080/admin/get/specialist', {
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('token'),
+                'Access-Control-Allow-Origin': '*',
             },
         })
 
@@ -109,7 +111,7 @@ export default class AreaAssignment extends React.Component {
             localStorage.setItem('specialist-info', JSON.stringify(res.data.find(item => item.id === (this.state.specialistId - ''))))
 
             axios({
-                url: `http://localhost:8080/user/assign/`,
+                url: `http://localhost:8080/admin/assign/`,
                 headers: {
                     Authorization: 'Bearer ' + localStorage.getItem('token'),
                     'Access-Control-Allow-Origin': '*',
@@ -133,8 +135,9 @@ export default class AreaAssignment extends React.Component {
 
     render() {
         const districts = localStorage.getItem('districts') ? JSON.parse(localStorage.getItem('districts')) : []
-        const subDistricts = localStorage.getItem('subDistricts') ? (this.state.district === '' ? [] : JSON.parse(localStorage.getItem('subDistricts'))) : []
+        const subDistricts = localStorage.getItem('sub-districts') ? (this.state.district === '' ? [] : JSON.parse(localStorage.getItem('sub-districts'))) : []
         const specialistInfo = this.state.specialistExist ? JSON.parse(localStorage.getItem('specialist-info')) : {}
+        console.log(subDistricts)
 
         return (
             <div className='area-container' >
