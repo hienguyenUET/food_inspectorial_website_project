@@ -1,9 +1,92 @@
 @import '../../App.css';
 
 .area-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
     background-image: url("../../assets/forest.jpg");
     background-size: contain;
     height: calc(100vh - 80px);
     width: 100%;
     color: var(--umwelt-dark);
+    padding-top: 48px;
+}
+
+.area-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    width: 80%;
+}
+
+.area-content>.input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.area-content>.input-container>label {
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.area-content>.input-container>select,
+.area-content>.input-container>input {
+    width: 256px;
+    border-radius: 12px;
+    font-size: 16px;
+    color: var(--umwelt-dark);
+    border: 2px solid var(--umwelt-dark);
+    cursor: pointer;
+    padding: 4px;
+    -webkit-appearance: none;
+}
+
+.area-content>.input-container>input {
+    cursor: auto;
+}
+
+.area-content>.input-container>select>option {
+    cursor: pointer;
+}
+
+.area-content>.input-container>select>option:hover {
+    background-color: var(--umwelt-dark);
+}
+
+.area-confirm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.area-container>.area-confirm {
+    right: 12.5%;
+    top: 44%;
+    position: absolute;
+}
+
+.area-info-container {
+    width: fit-content;
+    left: 12.5%;
+    top: 40%;
+    display: inline-table;
+    position: absolute;
+}
+
+.area-info-container>table {
+    border-collapse: separate;
+    background-color: var(--primary);
+    border: 2px solid var(--umwelt-dark);
+    border-spacing: 36px;
+    border-radius: 12px;
+}
+
+.area-info-container>table>tbody>tr>td {
+    font-weight: 700;
 }

@@ -19,7 +19,7 @@
     color: var(--umwelt-dark);
 }
 
-.stanFac-container > h1 {
+.stanFac-container>h1 {
     width: 50%;
     font-size: 48px;
     text-align: center;
@@ -42,7 +42,7 @@
     margin-left: 8px;
 }
 
-.stanFac-searchBar > select {
+.stanFac-searchBar>select {
     border-radius: 12px;
     font-size: 16px;
     color: var(--umwelt-dark);
@@ -51,11 +51,11 @@
     padding: 4px;
 }
 
-.stanFac-searchBar > select > option {
+.stanFac-searchBar>select>option {
     cursor: pointer;
 }
 
-.stanFac-searchBar > select > option:hover {
+.stanFac-searchBar>select>option:hover {
     background-color: var(--umwelt-dark);
 }
 
@@ -67,18 +67,19 @@
     border-collapse: collapse;
 } */
 
-.stanFac-table-content > thead {
+.stanFac-table-content>thead {
     width: calc(100% - 1em);
     font-weight: bold;
 }
 
-.stanFac-table-content > tbody {
+.stanFac-table-content>tbody {
     display: block;
     height: 440px;
     overflow: auto;
 }
 
-.stanFac-table-content > thead, .stanFac-table-content > tbody >tr {
+.stanFac-table-content>thead,
+.stanFac-table-content>tbody>tr {
     display: table;
     width: 100%;
     table-layout: fixed;
@@ -92,7 +93,8 @@
     padding: 1px;
 }
 
-.stanFac-searchby::before, .stanFac-searchby::after {
+.stanFac-searchby::before,
+.stanFac-searchby::after {
     content: '';
     position: absolute;
     bottom: -2px;
@@ -110,7 +112,7 @@
     left: 50%;
 }
 
-.stanFac-searchby > h5 {
+.stanFac-searchby>h5 {
     position: absolute;
     left: 12px;
     top: 70%;
@@ -121,14 +123,14 @@
     font-weight: 400;
 }
 
-.stanFac-searchby > input {
+.stanFac-searchby>input {
     border-radius: 12px;
     border: 2px solid var(--umwelt-dark);
     padding: 4px;
     font-size: 16px;
 }
 
-.stanFac-searchby.focus > h5 {
+.stanFac-searchby.focus>h5 {
     top: -10px;
     font-size: 12px;
 }
@@ -140,22 +142,22 @@
     text-align: center;
 }
 
-.stanFac-table-content > thead > tr > td:nth-child(1),
-.stanFac-table-content > tbody > tr > td:nth-child(1) {
+.stanFac-table-content>thead>tr>td:nth-child(1),
+.stanFac-table-content>tbody>tr>td:nth-child(1) {
     width: 128px;
 }
 
-.stanFac-table-content > thead > tr > td:nth-child(2),
-.stanFac-table-content > tbody > tr > td:nth-child(2) {
-    width: 512px;
-}
-
-.stanFac-table-content > thead > tr > td:nth-child(3),
-.stanFac-table-content > tbody > tr > td:nth-child(3) {
+.stanFac-table-content>thead>tr>td:nth-child(2),
+.stanFac-table-content>tbody>tr>td:nth-child(2) {
     width: 156px;
 }
 
-.stanFac-table-content > thead > tr > td:nth-child(5),
-.stanFac-table-content > tbody > tr > td:nth-child(5) {
+.stanFac-table-content>thead>tr>td:nth-child(3),
+.stanFac-table-content>tbody>tr>td:nth-child(3) {
+    width: 512px;
+}
+
+.stanFac-table-content>thead>tr>td:nth-child(4),
+.stanFac-table-content>tbody>tr>td:nth-child(4) {
     width: 144px;
 }

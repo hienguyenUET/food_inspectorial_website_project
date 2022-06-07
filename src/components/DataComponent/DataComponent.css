@@ -1,0 +1,56 @@
+ @font-face {
+     font-family: "Cambria Math";
+     panose-1: 2 4 5 3 5 4 6 3 2 4;
+ }
+
+ @font-face {
+     font-family: Calibri;
+     panose-1: 2 15 5 2 2 2 4 3 2 4;
+ }
+
+ @font-face {
+     font-family: "Malgun Gothic";
+     panose-1: 2 11 5 3 2 0 0 2 0 4;
+ }
+
+ @font-face {
+     font-family: "Berlin Sans FB";
+ }
+
+ @font-face {
+     font-family: "\@Malgun Gothic";
+ }
+
+ p.MsoNormal,
+ li.MsoNormal,
+ div.MsoNormal {
+     margin-top: 0in;
+     margin-right: 0in;
+     margin-bottom: 8.0pt;
+     margin-left: 0in;
+     line-height: 107%;
+     font-size: 11.0pt;
+     font-family: "Calibri", sans-serif;
+ }
+
+ .MsoChpDefault {
+     font-family: "Calibri", sans-serif;
+ }
+
+ .MsoPapDefault {
+     margin-bottom: 8.0pt;
+     line-height: 107%;
+ }
+
+ /* Page Definitions */
+ @media screen {
+     .WordSection1 {
+         display: none;
+     }
+ }
+
+ div.WordSection1 {
+     size: 8.5in 11.0in;
+     margin: 1.0in 1.0in 1.0in 1.0in;
+     word-wrap: break-word;
+ }

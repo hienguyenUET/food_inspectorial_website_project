@@ -30,7 +30,7 @@
     width: 100%;
 }
 
-.radios > .center > .radio-container {
+.radios>.center>.radio-container {
     font-size: 18px;
     font-weight: bold;
     display: inline-block;
@@ -44,7 +44,7 @@
     user-select: none;
 }
 
-.radios > .center > .radio-container > input {
+.radios>.center>.radio-container>input {
     position: absolute;
     opacity: 0;
 }
@@ -54,7 +54,6 @@
     justify-content: center;
     align-items: center;
     gap: 12px;
-    margin-bottom: 24px;
 }
 
 .form-divider {
@@ -70,23 +69,23 @@
     flex-direction: column;
     padding: 24px 0 24px 0;
     gap: 12px;
-    height: 60vh;
-    width: 480px;
+    height: 69vh;
+    width: 690px;
     border-radius: 12px;
     background-color: var(--umwelt-light-green);
 }
 
-.certificate-form.add > div,
-.certificate-form.remove > div {
+.certificate-form.add>div,
+.certificate-form.remove>div {
     display: grid;
-    grid-template-columns: 20% 80% auto;
+    grid-template-columns: 25% 75% auto;
     align-items: center;
     height: 48px;
     width: 90%;
 }
 
-.certificate-form.add > div > input,
-.certificate-form.remove > div > input {
+.certificate-form.add>div>input,
+.certificate-form.remove>div>input {
     border: 0;
     padding: 8px;
     font-size: 14px;
@@ -94,11 +93,14 @@
     color: var(--umwelt-dark);
 }
 
-.certificate-form.add > div > input:disabled,
-.certificate-form.remove > div > input:disabled {
+.certificate-form.add>div>input:disabled,
+.certificate-form.remove>div>input:disabled {
     background-color: var(--umwelt-dark-green);
 }
 
 .proc-btn {
     margin-top: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
 }

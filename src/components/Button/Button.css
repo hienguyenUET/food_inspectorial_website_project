@@ -27,18 +27,23 @@
     transition: all 0.3s ease-out;
 }
 
-/*Kích thước nút bình thường*/
+/*Kích thước nút bấm*/
 .btn--medium {
     width: 128px;
     padding: 8px 18px;
-    font-size: 14px;
+    font-size: 12px;
 }
 
-/*Kích thước nút lớn*/
 .btn--large {
-    width: 189px;
+    width: 198px;
     padding: 12px 20px;
-    font-size: 16px;
+    font-size: 15px;
+}
+
+.btn--extra--large {
+    width: 224px;
+    padding: 16px 24px;
+    font-size: 24px;
 }
 
 .btn--primary:hover:enabled {

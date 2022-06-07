@@ -1,0 +1,103 @@
+@import '../../App.css';
+
+.inspect-suggest-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    background-image: url("../../assets/forest.jpg");
+    background-size: contain;
+    height: calc(100vh - 80px);
+    width: 100%;
+    color: var(--umwelt-dark);
+    padding-top: 48px;
+}
+
+.inspect-suggest-table {
+    width: 75%;
+}
+
+.inspect-suggest-table>thead {
+    width: calc(100% - 1em);
+    font-weight: bold;
+}
+
+.inspect-suggest-table>tbody {
+    display: block;
+    height: 440px;
+    overflow: auto;
+}
+
+.inspect-suggest-table>thead,
+.inspect-suggest-table>tbody>tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    vertical-align: middle;
+    transition: all .4s ease;
+}
+
+.inspect-suggest-table td {
+    border: 2px solid var(--umwelt-dark);
+    padding: 4px 8px;
+    background-color: var(--primary);
+    text-align: center;
+}
+
+.inspect-suggest-table>thead>tr>td:nth-child(1),
+.inspect-suggest-table>tbody>tr>td:nth-child(1) {
+    width: 128px;
+}
+
+.inspect-suggest-table>thead>tr>td:nth-child(2),
+.inspect-suggest-table>tbody>tr>td:nth-child(2) {
+    width: 256px;
+}
+
+.inspect-suggest-table>thead>tr>td:nth-child(3),
+.inspect-suggest-table>tbody>tr>td:nth-child(3) {
+    width: 512px;
+}
+
+.inspect-suggest-table>thead>tr>td:nth-child(5),
+.inspect-suggest-table>tbody>tr>td:nth-child(5) {
+    width: 228px;
+}
+
+.inspect-suggest-table>thead>tr>td:nth-child(5) {
+    opacity: 0;
+}
+
+.inspect-suggest-table>tbody>tr>td:nth-child(5) {
+    background-color: transparent;
+    border-color: transparent;
+    font-weight: 500;
+    transition: all .3s ease;
+    cursor: pointer;
+}
+
+.inspect-suggest-table>tbody>tr>td:nth-child(5):hover {
+    background-color: var(--umwelt-dark-green);
+}
+
+.to-inspect-plan {
+    text-decoration: none;
+    color: var(--umwelt-dark);
+}
+
+.to-inspect-plan:hover {
+    color: var(--primary);
+}
+
+.to-inspect-plan>i {
+    padding-left: 4px;
+}
+
+.inspect-suggest-container>h1 {
+    width: 50%;
+    font-size: 48px;
+    text-align: center;
+    padding: 24px;
+    padding-bottom: 36px;
+    color: var(--primary);
+}

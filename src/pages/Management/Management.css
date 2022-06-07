@@ -17,14 +17,14 @@
     flex-direction: column;
 }
 
-.management-welcome > h1 {
+.management-welcome>h1 {
     letter-spacing: 1px;
     font-size: 72px;
-    color: var(--primary);
+    color: var(--umwelt-dark);
 }
 
-.management-welcome > h2 {
+.management-welcome>h2 {
     letter-spacing: 1px;
-    font-size: 48px;
-    color: var(--umwelt-dark);
+    font-size: 64px;
+    color: var(--primary);
 }

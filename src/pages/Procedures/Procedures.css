@@ -19,11 +19,11 @@
     color: var(--umwelt-dark);
 }
 
-.procedures-container > h1 {
+.procedures-container>h1 {
     width: 50%;
     font-size: 48px;
     text-align: center;
     padding: 24px;
-    padding-bottom: 36px;
+    padding-bottom: 12px;
     color: var(--primary);
 }

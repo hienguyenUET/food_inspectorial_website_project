@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 const STYLES = ['btn--primary', 'btn--outline']
 
 //Kích thước mặc định của nút bấm
-const SIZES = ['btn--medium', 'btn--large']
+const SIZES = ['btn--medium', 'btn--large', 'btn--extra--large']
 export const Button = ({
     children,
     type,
@@ -20,7 +20,7 @@ export const Button = ({
     const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0]
 
     return (
-        <Link to={`/${buttonHref}`} className='btn-mobile'>
+        <Link to={buttonHref !== undefined ? `/${buttonHref}` : '#'} className='btn-mobile'>
             <button
                 className={`btn ${checkButtonStyle} ${checkButtonSize}`}
                 onClick={onClick}

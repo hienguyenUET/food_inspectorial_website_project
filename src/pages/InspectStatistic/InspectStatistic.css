@@ -4,10 +4,67 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
     background-image: url("../../assets/forest.jpg");
     background-size: contain;
     height: calc(100vh - 80px);
     width: 100%;
     color: var(--umwelt-dark);
+}
+
+.statistic-table-container {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.statistic-table-container>h1 {
+    width: 50%;
+    font-size: 48px;
+    text-align: center;
+    padding: 24px;
+    padding-top: 0;
+    color: var(--primary);
+}
+
+.statistic-table {
+    width: 75%;
+}
+
+.statistic-table>thead {
+    width: calc(100% - 1em);
+    font-weight: bold;
+}
+
+.statistic-table>tbody {
+    display: block;
+    height: 440px;
+    overflow: auto;
+}
+
+.statistic-table>thead,
+.statistic-table>tbody>tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    vertical-align: middle;
+    transition: all .4s ease;
+}
+
+.statistic-table td {
+    border: 2px solid var(--umwelt-dark);
+    padding: 4px 8px;
+    background-color: var(--primary);
+    text-align: center;
+}
+
+.statistic-table>thead>tr>td:nth-child(1),
+.statistic-table>tbody>tr>td:nth-child(1) {
+    width: 156px;
+}
+
+.statistic-chart-container {
+    width: 30%;
 }

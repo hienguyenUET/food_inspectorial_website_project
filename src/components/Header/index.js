@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Button } from '../Button'
 import { Twirl as Hamburger, Twirl } from 'hamburger-react'
 import './Header.css'
+import axios from 'axios'
 
 function Header() {
     const [click, setClick] = useState(false)
@@ -10,7 +11,7 @@ function Header() {
     const [fir, setFir] = useState(false)
     const [sec, setSec] = useState(false)
     const [thi, setThi] = useState(false)
-    const user = 'expert'
+    const user = JSON.parse(localStorage.getItem('user-info'))
 
     const handleClick = () => setClick(!click)
 
@@ -24,6 +25,11 @@ function Header() {
         }
     }
 
+    const handleLogout = () => {
+        axios('http://localhost:8080/auth/logout')
+        localStorage.clear()
+    }
+
     useEffect(() => {
         showButton()
     }, [])
@@ -34,7 +40,7 @@ function Header() {
             setThi(false)
         }
     }, [fir])
-    
+
     useEffect(() => {
         if (sec) {
             setFir(false)
@@ -56,10 +62,10 @@ function Header() {
             {
                 <nav className='navbar'>
                     <div className='navbar-container'>
-                        <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
+                        <div className='navbar-logo'>
                             Healthy first
                             <img className='logo' src={`${process.env.PUBLIC_URL}/assets/small-logo.png`} alt='Description' />
-                        </Link>
+                        </div>
 
                         <div className='menu-icon' onClick={handleClick}>
                             <Twirl color='#05386b' toggled={click} toggle={setClick} />
@@ -72,11 +78,11 @@ function Header() {
                                 </Link>
                             </li>
                             {
-                                user === 'supervisor' && (<li className='nav-item dropdown'>
-                                <Link to='/areaassignment' className='nav-links' onClick={closeMobileMenu}>
-                                    Phân công địa bàn
-                                </Link>
-                            </li>)
+                                user.role === '[ADMIN]' && (<li className='nav-item dropdown'>
+                                    <Link to='/areaassignment' className='nav-links' onClick={closeMobileMenu}>
+                                        Phân công địa bàn
+                                    </Link>
+                                </li>)
                             }
                             <li className='nav-item dropdown'>
                                 <Link to='/standardfacilities' className='nav-links' onClick={closeMobileMenu}>
@@ -86,7 +92,7 @@ function Header() {
                             <li className={`nav-item dropdown ${sec ? 'focus' : ''}`} onClick={() => setSec(!sec)}>
                                 <div className='nav-links'>
                                     Giấy chứng nhận
-                                    <i class='fa-solid fa-caret-down'></i>
+                                    <i className='fa-solid fa-caret-down'></i>
                                 </div>
                                 <ul className='dropdown-menu'>
                                     <li><Link className='dropdown-item' to='/filter'>Lọc danh sách</Link></li>
@@ -96,12 +102,11 @@ function Header() {
                             <li className={`nav-item dropdown ${thi ? 'focus' : ''}`} onClick={() => setThi(!thi)}>
                                 <div className='nav-links'>
                                     Hoạt thông thanh
-                                    <i class='fa-solid fa-caret-down'></i>
+                                    <i className='fa-solid fa-caret-down'></i>
                                 </div>
                                 <ul className='dropdown-menu'>
                                     <li><Link className='dropdown-item' to='/inspectsuggest'>Gợi ý điều tra</Link></li>
                                     <li><Link className='dropdown-item' to='/inspectplan'>Kế hoạch điều tra</Link></li>
-                                    <li><Link className='dropdown-item' to='/inspectevidence'>Mẫu thực phẩm</Link></li>
                                     <li><Link className='dropdown-item' to='/inspectstatistic'>Thống kê kết quả</Link></li>
                                 </ul>
                             </li>
@@ -111,7 +116,13 @@ function Header() {
                                 </Link>
                             </li>
                         </ul>
-                        {button && <Button type='primary' size='medium'>ĐĂNG XUẤT</Button>}
+                        {button && <Button
+                            children='ĐĂNG XUẤT'
+                            buttonStyle='button--primary'
+                            buttonSize='btn--medium'
+                            buttonHref=''
+                            onClick={handleLogout}
+                        />}
                     </div>
                 </nav>
             }

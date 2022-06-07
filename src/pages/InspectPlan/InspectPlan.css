@@ -39,7 +39,7 @@
     flex-direction: column;
 }
 
-.swiper-slide > h1 {
+.swiper-slide>h1 {
     color: var(--primary);
     font-size: 48px;
     margin-bottom: auto;
@@ -54,4 +54,16 @@
 .swiper-button-next::after {
     color: var(--umwelt-dark);
     font-weight: bold;
+}
+
+.waiting {
+    color: #ed4337;
+}
+
+.pending {
+    color: #f29339;
+}
+
+.finished {
+    color: var(--umwelt-green);
 }

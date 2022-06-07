@@ -2,17 +2,38 @@
 import { useState } from 'react'
 import axios from 'axios'
 import LoginForm from '../../components/LoginForm'
+import cogoToast from 'cogo-toast'
+import { useNavigate } from 'react-router-dom';
 import './Home.css'
 
 function Home() {
-    const [user, setUser] = useState({name: '', role: ''})
+    const [user, setUser] = useState({ name: '', role: '' })
     const [error, setError] = useState('')
+    const navigate = useNavigate();
 
     const login = details => {
-        axios.get('http://localhost:8080/auth/login')
-            .then(res => {
-                console.log(res.data)
+        if (details.username === '') {
+            cogoToast.error('Vui lòng điền tài khoản')
+        } else if (details.password === '') {
+            cogoToast.error('Vui lòng nhập mật khẩu')
+        } else {
+            axios.post('http://localhost:8080/auth/login', {
+                username: details.username,
+                password: details.password
+            }).then(res => {
+                localStorage.setItem('token', res.data.token)
+                localStorage.setItem('user-info', JSON.stringify({
+                    id: res.data.id,
+                    firstName: res.data.firstName,
+                    lastName: res.data.lastName,
+                    role: res.data.role
+                }))
+                navigate('/management');
+            }).catch(() => {
+                cogoToast.error('Tài khoản hoặc mật khẩu không đúng')
             })
+        }
+
     }
 
     const logout = () => {
@@ -26,7 +47,7 @@ function Home() {
             </div>
             <div>
                 <div className='home-intro'>
-                    <h1>Health first</h1>
+                    <h1>Healthy first</h1>
                     <br />
                     <h1>Hệ thống quản lý các cơ sở sản xuất thực phẩm, kinh doanh dịch vụ ăn uống</h1>
                     <br />
