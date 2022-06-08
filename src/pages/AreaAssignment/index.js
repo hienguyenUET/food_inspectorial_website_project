@@ -138,7 +138,7 @@ export default class AreaAssignment extends React.Component {
                 hideAfter: 1.5
             })
 
-            setTimeout(() => {
+            window.setTimeout(() => {
                 cogoToast.success('Phân vùng thành công!')
             }, 1500)
         }

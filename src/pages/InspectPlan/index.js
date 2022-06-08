@@ -74,7 +74,7 @@ function InspectPlan() {
             method: 'put'
         })
         localStorage.setItem('swiper-index', '0')
-        setTimeout(window.location.reload(false), 1500)
+        window.setTimeout(() => window.location.reload(false), 1500)
     }
 
     //Hàm xử lý kết thúc thanh tra cơ sở
@@ -92,7 +92,7 @@ function InspectPlan() {
             method: 'put'
         })
         localStorage.setItem('swiper-index', '0')
-        setTimeout(window.location.reload(false), 1500)
+        window.setTimeout(() => window.location.reload(false), 1500)
     }
 
     //Xử lý loại bỏ cơ sở
@@ -111,7 +111,7 @@ function InspectPlan() {
                 method: 'put'
             })
             localStorage.setItem('swiper-index', '0')
-            setTimeout(window.location.href = 'http://localhost:3000/inspectsuggest', 1500)
+            window.setTimeout(() => window.location.href = 'http://localhost:3000/inspectsuggest', 1500)
         }
     }
 
@@ -127,7 +127,7 @@ function InspectPlan() {
             method: 'put'
         })
         localStorage.setItem('swiper-index', '1')
-        setTimeout(window.location.reload(false), 1500)
+        window.setTimeout(() => window.location.reload(false), 1500)
     }
 
     //Hàm xử lý kết thúc kiểm định thực phẩm
@@ -142,7 +142,7 @@ function InspectPlan() {
             method: 'put'
         })
         localStorage.setItem('swiper-index', '1')
-        setTimeout(window.location.reload(false), 1500)
+        window.setTimeout(() => window.location.reload(false), 1500)
     }
 
     //Xử lý loại bỏ thực phẩm
@@ -179,7 +179,7 @@ function InspectPlan() {
         localStorage.removeItem('food-being-inspected')
         setDialogOpen(false)
         localStorage.setItem('swiper-index', '1')
-        setTimeout(window.location.reload(false), 1500)
+        window.setTimeout(() => window.location.reload(false), 1500)
     }
 
     //Xử lý thực phẩm không đạt chuẩn
@@ -199,7 +199,7 @@ function InspectPlan() {
         localStorage.removeItem('food-being-inspected')
         setDialogOpen(false)
         localStorage.setItem('swiper-index', '1')
-        setTimeout(window.location.reload(false), 1500)
+        window.setTimeout(() => window.location.reload(false), 1500)
     }
 
     //Xử lý cơ sở đạt chuẩn
